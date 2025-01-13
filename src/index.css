@@ -1,0 +1,220 @@
+ .red{
+    background-color: red;
+}
+
+
+.todo-list-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.todo-list-container input[type="text"] {
+    width: calc(100% - 90px);
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.todo-list-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.todo-list-container button:hover {
+    background-color: #0056b3;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.todo-list li {
+    margin-bottom: 10px;
+}
+
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.todo-item p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.todo-item button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.todo-item button:hover {
+    background-color: #b02a37;
+}
+
+
+.container-calculator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    font-family: Arial, sans-serif;
+}
+
+
+.container-calculator > div {
+
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+}
+
+
+.box-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; 
+}
+
+.btn-calc {
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none;
+    border-radius: 5px; 
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-calc:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05);
+}
+
+.btn-calc:active {
+    background-color: #003f7f; 
+    transform: scale(0.95); 
+}
+
+.number {
+    font-size: 48px; 
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+
+ul{
+    list-style: none;
+
+}
+
+
+.btn-color{
+
+    width: 100px;
+
+    height: 100px;
+}
+
+
+.container-color{
+
+    display: flex;
+
+
+}
+
+
+/* Загальний контейнер для кольорів */
+.color-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif; /* Шрифт */
+}
+
+/* Список кольорів */
+.color-container ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Рядки автоматично переносяться */
+    gap: 15px; /* Відступи між елементами */
+    justify-content: center;
+}
+
+/* Кольорові блоки */
+.container-color {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тінь */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Ефект при наведенні */
+.container-color:hover {
+    transform: scale(1.1); /* Збільшення при наведенні */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Кнопка для вибору кольору */
+.btn-color {
+    background-color: #007bff; /* Синій фон */
+    color: #ffffff; /* Білий текст */
+    border: none;
+    border-radius: 5px; /* Згладжені кути */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Ефекти для кнопки */
+.btn-color:hover {
+    background-color: #0056b3; /* Темно-синій фон при наведенні */
+    transform: scale(1.05); /* Легке збільшення */
+}
+
+.btn-color:active {
+    background-color: #003f7f; /* Ще темніший при натисканні */
+    transform: scale(0.95); /* Легке зменшення */
+}

@@ -1,0 +1,23 @@
+.container {
+
+    display: flex;
+    gap: 10px;
+
+}
+
+
+.btn{
+
+    font-size: 20px;
+    padding: 15px;
+    background-color: aqua;
+    border-radius: 13%;
+    border: none;
+    cursor: pointer;
+
+}
+
+
+.btn:hover{
+    background-color: aquamarine;
+}
