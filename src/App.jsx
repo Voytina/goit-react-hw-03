@@ -1,48 +1,77 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import './App.css'
-import Description from './components/Description/Description'
-import Feedback from './components/Feedback/Feedback';
+import Description from './components/Description/Description';
 import Options from './components/Options/Options';
-import Notification from './components/Notification/Notification';
+import Feedback from './components/Feedback/Feedback'
+
+import Notification from './components/Notification/Notification'
+import Todo from './components/Todo/Todo';
+
+
 
 
 
 export default  function App (){
-  const [reviews,setReviews] = useState(()=>{
-    const data = JSON.parse(localStorage.getItem('key'));    
-    return data || {good:0, neutral:0, bad:0}
 
-  })
+
+  const [responce,setResponce] = useState(()=>{
+
+
+    const data = JSON.parse(localStorage.getItem('key'));
+
+    return data
+
+  });
 
   useEffect(()=>{
-    localStorage.setItem('key',JSON.stringify(reviews))
-  },[reviews])
+
+    localStorage.setItem('key',JSON.stringify(responce))
+
+
+  },[responce])
+
 
   const updateFeedback = feedbackType => {
-    setReviews((prev) => ({
+    setResponce((prev) => ({
       ...prev,
       [feedbackType]: prev[feedbackType] + 1,
-    }));
+    }))
   }
 
-  const totalFeedback = Object.values(reviews).reduce((acc,value) => acc+=value,0);
 
-  const percentagePositiveReviews = Math.round((reviews.good  / totalFeedback) * 100);
+  const totalResponce = Object.values(responce).reduce((total,value) => { return total+=value},0);
 
-  const resetFeedBack  = () =>{
-    setReviews({good: 0,
-      neutral: 0,
-      bad: 0})
+
+  function resetResponce () {
+
+    setResponce({
+      good: 0,
+    neutral: 0,
+    bad: 0
+    })
   }
-  
+
+  const interest = Math.round((responce.good / totalResponce) * 100);
+
+
+
+
+
+
 
   return (
     <div>
       <Description/>
-      <Options item={reviews} update={updateFeedback} totalFeedback={totalFeedback} reset={resetFeedBack}/>
+      <Options update={updateFeedback} item={responce} total={totalResponce} reset={resetResponce}/>
+
       {
-        totalFeedback > 0 ? <Feedback item={reviews} total={totalFeedback} interest={percentagePositiveReviews} /> :  <Notification/>
+        totalResponce > 0 ?  <Feedback item ={responce} interest={interest}/> : <Notification/>
       }
-    </div>)
+
+
+      <Todo/>
+
+    </div>
+  )
 
 }
