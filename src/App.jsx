@@ -9,7 +9,10 @@ export default function App() {
   const [contacts, setContacts] = useState(() => {
     const data = JSON.parse(localStorage.getItem(KEY_PHONE_BOOK));
 
-    return data;
+    if (data) {
+      return data;
+    }
+    return [];
   });
 
   useEffect(() => {
