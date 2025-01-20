@@ -1,85 +1,32 @@
-.todo-container {
-    font-family: Arial, sans-serif;
-    width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .todo-header {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .todo-header input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .todo-button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .todo-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .todo-list {
-    margin-top: 20px;
-  }
-
-
-  .items-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .items-list-item {
-    margin-bottom: 10px;
-  }
-
-
-  .item-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    transition: box-shadow 0.3s;
-  }
-  
-  .item-container:hover {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .item-text {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
   }
   
-  .item-delete-button {
-    padding: 4px 8px;
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  html, body {
+    height: 100%; 
+    font-family: Arial, sans-serif; 
+    background-color: #f9f9f9; 
+    color: #333; 
+    line-height: 1.6; 
   }
   
-  .item-delete-button:hover {
-    background-color: #cc0000;
+  a {
+    text-decoration: none; 
+    color: inherit; 
+  }
+  
+  ul, ol {
+    list-style: none; 
+  }
+  
+  img {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+  }
+  
+  button {
+    cursor: pointer; 
   }

@@ -1,77 +1,46 @@
-import { useEffect, useId, useState } from 'react';
-import './App.css'
-import Description from './components/Description/Description';
-import Options from './components/Options/Options';
-import Feedback from './components/Feedback/Feedback'
+import { useEffect, useState } from 'react';
+import ContactForm from './components/ContactForm/ContactForm';
+import ContactList from './components/ContactList/ContactList';
+import SearchBox from './components/SearchBox/SearchBox';
 
-import Notification from './components/Notification/Notification'
-import Todo from './components/Todo/Todo';
+const KEY_PHONE_BOOK = 'book';
 
+export default function App() {
+  const [contacts, setContacts] = useState(() => {
+    const data = JSON.parse(localStorage.getItem(KEY_PHONE_BOOK));
 
-
-
-
-export default  function App (){
-
-
-  const [responce,setResponce] = useState(()=>{
-
-
-    const data = JSON.parse(localStorage.getItem('key'));
-
-    return data
-
+    return data;
   });
 
-  useEffect(()=>{
+  useEffect(() => {
+    localStorage.setItem(KEY_PHONE_BOOK, JSON.stringify(contacts));
+  }, [contacts]);
 
-    localStorage.setItem('key',JSON.stringify(responce))
+  const [filter, setFilter] = useState('');
 
+  const visibileTask = contacts.filter(value =>
+    value.name.toLowerCase().includes(filter.toLowerCase()),
+  );
 
-  },[responce])
-
-
-  const updateFeedback = feedbackType => {
-    setResponce((prev) => ({
-      ...prev,
-      [feedbackType]: prev[feedbackType] + 1,
-    }))
+  function addContact(values, action) {
+    const newContact = {
+      ...values,
+      id: crypto.randomUUID(),
+    };
+    setContacts(prev => [...prev, newContact]);
+    action.resetForm();
   }
 
-
-  const totalResponce = Object.values(responce).reduce((total,value) => { return total+=value},0);
-
-
-  function resetResponce () {
-
-    setResponce({
-      good: 0,
-    neutral: 0,
-    bad: 0
-    })
+  function deleteContact(id) {
+    setContacts(prev => prev.filter(value => value.id !== id));
   }
-
-  const interest = Math.round((responce.good / totalResponce) * 100);
-
-
-
-
-
-
 
   return (
     <div>
-      <Description/>
-      <Options update={updateFeedback} item={responce} total={totalResponce} reset={resetResponce}/>
-
-      {
-        totalResponce > 0 ?  <Feedback item ={responce} interest={interest}/> : <Notification/>
-      }
-
-
-      <Todo/>
-
+      <h1>Phonebook</h1>
+      <ContactForm onAdd={addContact} />
+      <SearchBox search={filter} onSearch={setFilter} />
+      <ContactList list={visibileTask} onDelete={deleteContact} />
     </div>
-  )
-
+  );
 }
